@@ -1,0 +1,10 @@
+Take photographs
+
+Import into ImageJ
+Use diameter of dish to set scale (60mm = diameter)
+Convert to 8-bit
+Invert
+Threshold (170-255)
+Invert
+Analyze Particles
+Save Results
