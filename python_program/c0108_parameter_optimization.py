@@ -28,14 +28,21 @@ def parameter_optimiation():
                 if area[i] > area_neg_max:
                     area_neg_max = area[i]
 
-    circularity_max_neg = max(circularity)
+    area, perim, width, height, circularity = retrieve_by_record_name(record_name_pos1)
+
+    circularity_min = max(circularity)
+    for i in range(len(circularity)):
+        if circularity[i] > 0.5:
+            if area[i] >= area_neg_max:
+                if circularity_min > circularity[i]:
+                    circularity_min = circularity[i]
 
     print("Max Neg Area: " + str(area_neg_max))
-    print("Max Neg Circularity: " + str(circularity_max_neg))
+    print("Max Neg Circularity: " + str(circularity_min))
 
     df_named = pd.DataFrame()
     df_named["Max Neg Area"] = [area_neg_max]
-    df_named["Max Neg Circularity"] = [circularity_max_neg]
+    df_named["Max Neg Circularity"] = [circularity_min]
 
     filepath = os.path.join("..", "reference_files")
     if not os.path.exists(filepath): os.makedirs(filepath)

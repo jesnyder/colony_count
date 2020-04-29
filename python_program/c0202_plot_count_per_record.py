@@ -17,7 +17,7 @@ def plot_count_per_record():
     """
 
     print("running plot_count_per_record")
-    
+
     a = retrieve_value("area_min")
     a_2 = retrieve_value("area_max")
     c = retrieve_value("circularity_min")
@@ -38,8 +38,6 @@ def plot_count_per_record():
         area_truncated, circularity_truncated = truncate_two_lists(area, circularity, a, a_2, c, c_2)
         plt.bar([index], [len(area_truncated)], width=0.8, color = [1,0,0])
 
-        #area_truncated, circularity_truncated = truncate_two_lists(area, circularity, 0, a, c, c_2)
-        #plt.bar([index+.5], [len(area_truncated)], width=0.4, color = [.8,.8,.8])
 
     plt.title("Summary of Colony Counts")
     plt.xlabel("Record Names")
