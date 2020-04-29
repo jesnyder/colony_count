@@ -9,6 +9,7 @@ from c0102_parse_name_and_count import parse_name_and_count
 from c0104_retrieve_by_record_name import retrieve_by_record_name
 from c0105_truncate_by_area import truncate_by_area
 from c0106_truncate_two_lists import truncate_two_lists
+from c0107_retrieve_values import retrieve_value
 
 def plot_count_per_record():
     """
@@ -16,12 +17,11 @@ def plot_count_per_record():
     """
 
     print("running plot_count_per_record")
-
-
-    a = 0.15
-    a_2 = 15
-    c = 0.4
-    c_2 = 10
+    
+    a = retrieve_value("area_min")
+    a_2 = retrieve_value("area_max")
+    c = retrieve_value("circularity_min")
+    c_2 = retrieve_value("circularity_max")
 
     record_name_master, count_master = parse_name_and_count()
 
@@ -44,6 +44,8 @@ def plot_count_per_record():
     plt.title("Summary of Colony Counts")
     plt.xlabel("Record Names")
     plt.ylabel("Counts")
+    # plt.ylim([0.1, 1000])
+    # plt.yscale('log')
 
     plt.xlim([-0.5, len(record_name_master)+1])
     xx = np.linspace(0,len(record_name_master)-1, len(record_name_master))
@@ -74,6 +76,8 @@ def plot_count_per_record():
         plt.title("Summary of Found Particles (Small vs Large)")
         plt.xlabel("Record Names")
         plt.ylabel("Counts")
+        #plt.ylim([0.1, 1000])
+        #plt.yscale('log')
 
         plt.legend(loc='upper right')
 

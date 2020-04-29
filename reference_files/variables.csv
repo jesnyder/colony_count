@@ -1,0 +1,5 @@
+Name,Value,
+area_min,0.25,
+area_max,25,
+circularity_min,0.6,
+circularity_max,10,

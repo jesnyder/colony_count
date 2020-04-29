@@ -27,4 +27,4 @@ def retrieve_by_record_name(record_name):
     return(area, perim, width, height, circularity)
 
 if __name__ == "__main__":
-    area, perim, width, height, circularity = format_count_by_name(record_name)
+    area, perim, width, height, circularity = retrieve_by_record_name(record_name)
